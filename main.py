@@ -28,15 +28,15 @@ class MyPlugin(Star):
         return result
 
     # 用于判断昵称与ID是否匹配，如果ID不在映射表中则默认匹配成功
-    def is_id_match(self, nickname: str, id: str) -> bool:
+    def is_id_match(self, nickname: str, user_id: str) -> bool:
         expected_id = self.id_map.get(nickname)
         if expected_id is None:
             return True
-        return expected_id == id
+        return expected_id == user_id
     
     # 检查每条信息的昵称和ID，并在发送给llm前插入警告
     @filter.on_llm_request()
-    async def my_custom_hook_1(self, event: AstrMessageEvent, req: ProviderRequest):
+    async def check_id(self, event: AstrMessageEvent, req: ProviderRequest):
         name = event.get_sender_name()
         actual_id = event.get_sender_id()
         if not self.is_id_match(name, actual_id):
