@@ -1,9 +1,19 @@
-# helloworld
+# 识人术
 
-AstrBot 插件模板
+~~黑暗心理学，社交的手腕...~~
 
-A template plugin for AstrBot plugin feature
+~~一切要从有人把名字改成我的之后把我的小bot牛走了说起~~
 
-# 支持
+防止你的小llm因为别人把名字改成你的就认错人
 
-[帮助文档](https://astrbot.app)
+# 功能
+
+检查每条信息的昵称和ID与配置的映射表是否匹配，不匹配时在发送给llm前插入警告信息
+当然如果映射表里没有也不会警告
+
+# 版本历史
+
+## v0.0.1
+
+- 初始版本，各种功能基本可用
+- ~~如果astrbot的配置文件能写objectlist就好了~~
