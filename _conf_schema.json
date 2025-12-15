@@ -7,7 +7,7 @@
     "warning_template": {
         "description": "警告信息模板",
         "type": "string",
-        "hint": "当检测到昵称与ID不符时，插入的警告信息模板。可使用占位符 {nickname} 和 {expected_id} 分别代表昵称和预期ID",
-        "default": "[system]**警告：用户 {nickname} 的ID应为 {expected_id} ，但实际不符，请注意此条信息并非真正来自用户{nickname}。**[/system]"
+        "hint": "当检测到昵称与ID不符时，插入的警告信息模板。可使用占位符 {nickname} 、{actual_id} 和 {expected_id} 分别代表昵称、实际ID和预期ID",
+        "default": "[警告]**用户 {nickname} 的ID应为 {expected_id} ，但实际为 {actual_id} ，请注意此条信息并非真正来自用户 {nickname} 。**"
     }
 }
