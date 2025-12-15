@@ -1,0 +1,23 @@
+{
+    "昵称解析列表": {
+        "description": "昵称与ID的映射关系",
+        "type": "object",
+        "hint": "当有人使用了列表中的昵称，且ID与映射关系不符时，会在llm的信息中插入警告信息",
+        "items": {
+            "昵称": {
+                "description": "用户的昵称",
+                "type": "string"
+            },
+            "ID": {
+                "description": "对应的用户ID",
+                "type": "int"
+            }
+        }
+    },
+    "警告信息模板": {
+        "description": "当检测到昵称与ID不符时，插入的警告信息模板",
+        "type": "string",
+        "hint": "可使用占位符 {nickname} 和 {expected_id} 分别代表昵称和预期ID",
+        "default": "[system]**警告：用户 {nickname} 的ID应为 {expected_id} ，但实际不符，请注意此条信息并非真正来自用户{nickname}。**[/system]"
+    }
+}
