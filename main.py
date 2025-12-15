@@ -1,6 +1,3 @@
-from logging import warning
-from math import log
-from os import name
 from astrbot.api.event import filter, AstrMessageEvent, MessageEventResult
 from astrbot.api.provider import ProviderRequest
 from astrbot.api.star import Context, Star, register
