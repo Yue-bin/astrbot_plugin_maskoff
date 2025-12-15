@@ -54,7 +54,9 @@ class MyPlugin(Star):
         name = event.get_sender_name().strip()
         actual_id = event.get_sender_id()
         if not self.is_id_match(name, actual_id):
-            logger.warning(f"昵称与ID不匹配: 昵称={name}, ID={actual_id}")
+            logger.warning(
+                f"昵称与ID不匹配: 昵称={name}, ID={actual_id}, 期望ID={self.id_map.get(name, '未知')}"
+            )
             # 替换{nickname} 、{actual_id} 和 {expected_id}
             warning_msg = (
                 self.config.get("warning_template", "")
