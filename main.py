@@ -37,7 +37,7 @@ class MyPlugin(Star):
         for item in id_map_list:
             entry = validate_entry(item)
             if entry is not None:
-                nickname, user_id = entry
+                user_id, nickname = entry
                 result[nickname.strip()] = user_id.strip()
         return result
 
