@@ -8,7 +8,7 @@ from astrbot.api import logger, AstrBotConfig
     "astrbot_plugin_maskoff",
     "识人术",
     "防止你的小llm因为别人把名字改成你的就认错人",
-    "0.0.1",
+    "0.1.0",
 )
 class MyPlugin(Star):
     def __init__(self, context: Context, config: AstrBotConfig):
