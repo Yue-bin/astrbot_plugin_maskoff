@@ -39,6 +39,6 @@
         "description": "通知信息模板",
         "type": "string",
         "hint": "当检测到昵称包含与ID不符的预设昵称时，插入的通知信息模板。用于更进一步防止名字注入。可使用占位符 {actual_nickname}、{nickname}、{actual_id} 和 {expected_id} 分别代表昵称、实际ID和预期ID",
-        "default": "[注意]**用户 {actual_nickname} 的昵称包含 {nickname} ，但是ID为 {actual_id} 而非 {expected_id} ，请注意此条信息并非真正来自用户 {nickname} 。**"
+        "default": "[注意]**用户 {actual_nickname} 的昵称包含 {nickname} ，但是ID为 {actual_id} 而非 {expected_id} ，请注意此条信息并非真正来自用户 {nickname} 。该用户可能并无恶意，只是名字恰好包含，注意区分。**"
     }
 }
