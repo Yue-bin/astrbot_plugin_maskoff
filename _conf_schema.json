@@ -1,13 +1,44 @@
 {
     "id_map_list": {
         "description": "昵称解析列表",
-        "type": "list",
-        "hint": "当有人使用了列表中的昵称，且ID与映射关系不符时，会在llm的信息中插入警告信息。每一项按第一个出现的半角逗号分割id和用户名，示例：123456789,张三"
+        "type": "template_list",
+        "hint": "当有人使用了列表中的昵称，且ID与映射关系不符时，会在llm的信息中插入警告信息。",
+        "templates": {
+            "id_map_template": {
+                "name": "ID映射项",
+                "items": {
+                    "nickname": {
+                        "description": "用户昵称",
+                        "hint": "需要检查的用户昵称",
+                        "type": "string",
+                        "default": "默认昵称"
+                    },
+                    "user_id": {
+                        "description": "用户ID",
+                        "hint": "预期的用户ID",
+                        "type": "string",
+                        "default": "123456789"
+                    }
+                }
+            }
+        }
+    },
+    "check_contain": {
+        "description": "是否检查包含昵称的情况",
+        "hint": "如果启用此选项，则当用户昵称包含指定昵称时会触发通知。否则仅在完全匹配时触发警告。",
+        "type": "bool",
+        "default": true
     },
     "warning_template": {
         "description": "警告信息模板",
         "type": "string",
-        "hint": "当检测到昵称与ID不符时，插入的警告信息模板。可使用占位符 {nickname} 、{actual_id} 和 {expected_id} 分别代表昵称、实际ID和预期ID",
+        "hint": "当检测到昵称相同而ID不符时，插入的警告信息模板。可使用占位符 {nickname}、{actual_id} 和 {expected_id} 分别代表昵称、实际ID和预期ID",
         "default": "[警告]**用户 {nickname} 的ID应为 {expected_id} ，但实际为 {actual_id} ，请注意此条信息并非真正来自用户 {nickname} 。**"
+    },
+    "notice_template": {
+        "description": "通知信息模板",
+        "type": "string",
+        "hint": "当检测到昵称包含与ID不符的预设昵称时，插入的通知信息模板。用于更进一步防止名字注入。可使用占位符 {actual_nickname}、{nickname}、{actual_id} 和 {expected_id} 分别代表昵称、实际ID和预期ID",
+        "default": "[注意]**用户 {actual_nickname} 的昵称包含 {nickname} ，但是ID为 {actual_id} 而非 {expected_id} ，请注意此条信息并非真正来自用户 {nickname} 。**"
     }
 }
